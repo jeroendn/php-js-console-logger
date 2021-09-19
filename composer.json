@@ -1,0 +1,21 @@
+{
+  "name": "jeroendn/php-js-console-logger",
+  "description": "A simple way to create javascript console logs via a php function.",
+  "type": "library",
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "ext-curl": "*"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jeroen de Nijs",
+      "email": "info@jeroendn.nl"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "jeroendn\\phpJsConsoleLogger\\": "src"
+    }
+  }
+}
