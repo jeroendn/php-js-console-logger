@@ -2,92 +2,14 @@
 
 namespace jeroendn\phpJsConsoleLogger;
 
-use DateTime;
+use jeroendn\phpJsConsoleLoggerBase\phpJsConsoleLoggerBase;
 
-class phpJsConsoleLogger
+class phpJsConsoleLogger extends phpJsConsoleLoggerBase
 {
   /**
-   * @var string $log
-   */
-  private string $log = '';
-
-  /**
-   * @var array $logs
-   */
-  private array $logs = [];
-
-//  private int $timeout = 0;
-
-//  private int $interval = 1000;
-
-  /**
-   * @var int $maxIterations
-   */
-  private int $maxIterations = -1;
-
-  /**
-   * @var string $iterationSpacer
-   */
-  private string $iterationSpacer = '';
-
-//  private DateTime|null $dateTimeStart = null;
-
-//  private DateTime|null $dateTimeEnd = null;
-
-//  private bool $isServerSideJsLoading = true; // Future feature: Always load js and check in js if the logs should be shown
-
-  /**
-   * Sets a single for the logger
-   * @param string $log
-   * @return $this
-   */
-  public function setLog(string $log): phpJsConsoleLogger
-  {
-    $this->log = $log;
-    $this->logs = [];
-
-    return $this;
-  }
-
-  /**
-   * Sets multiple lines for the logger
-   * @param array $logs
-   * @return $this
-   */
-  public function setLogs(array $logs): phpJsConsoleLogger
-  {
-    $this->logs = $logs;
-    $this->log = '';
-
-    return $this;
-  }
-
-  /**
-   * Set to -1 (any negative number) for infinite iterations
-   * @param int $maxIterations
-   * @return $this
-   */
-  public function setMaxIterations(int $maxIterations): phpJsConsoleLogger
-  {
-    $this->maxIterations = $maxIterations;
-
-    return $this;
-  }
-
-  /**
-   * Use default value '' for no spacer
-   * @param string $iterationSpacer
-   * @return $this
-   */
-  public function setIterationSpacer(string $iterationSpacer): phpJsConsoleLogger
-  {
-    $this->iterationSpacer = $iterationSpacer;
-
-    return $this;
-  }
-
-  /**
+   * Generates the JS in an HTML script tag
    * @return string
+   * HTML
    */
   public function generateJs(): string
   {
@@ -99,8 +21,8 @@ class phpJsConsoleLogger
         let iterationSpacer = '" . $this->iterationSpacer . "';
         let logsOriginal = " . (!empty($this->log) ? json_encode([$this->log]) : json_encode($this->logs)) . ";
         let logs = ('" . $this->iterationSpacer . "' !== '' && maxIterations !== 1) ? [].concat(logsOriginal, ['" . $this->iterationSpacer . "']) : [].concat(logsOriginal); // TODO perhaps write a function for this
-        let timeout = 100;
-        let interval = 2000;
+        let timeout = " . $this->timeout . ";
+        let interval = " . $this->interval . ";
         
         // If maxIterations is 0, don't run the code at all
         if (maxIterations !== 0) {

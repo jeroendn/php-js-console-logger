@@ -66,6 +66,8 @@ $logger = new phpJsConsoleLogger();
 $logger->setLog('test');
 $logger
   ->setLogs($examples)
+  ->setTimeout()
+  ->setInterval()
   ->setMaxIterations(-1)
   ->setIterationSpacer('-');
 

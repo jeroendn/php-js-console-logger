@@ -15,7 +15,8 @@
   ],
   "autoload": {
     "psr-4": {
-      "jeroendn\\phpJsConsoleLogger\\": "src"
+      "jeroendn\\phpJsConsoleLogger\\": "src",
+      "jeroendn\\phpJsConsoleLoggerBase\\": "src"
     }
   }
 }
