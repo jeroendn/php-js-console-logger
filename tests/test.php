@@ -2,6 +2,7 @@
 
 use jeroendn\phpJsConsoleLogger\phpJsConsoleLogger;
 
+$examples = ['Example1', 'Example2', 'Example3'];
 $rick = [
 'We\'re no strangers to love',
 'You know the rules and so do I',
@@ -62,7 +63,10 @@ $rick = [
 
 $logger = new phpJsConsoleLogger();
 
-$logger = $logger->setLog('test');
-$logger = $logger->setLogs($rick);
+$logger->setLog('test');
+$logger
+  ->setLogs($examples)
+  ->setMaxIterations(-1)
+  ->setIterationSpacer('-');
 
 echo $logger->generateJs();
