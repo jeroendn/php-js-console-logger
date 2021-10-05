@@ -48,7 +48,7 @@ class phpJsConsoleLoggerBase
 //  protected bool $isServerSideJsLoading = true; // Future feature: Always load js and check in js if the logs should be shown
 
   /**
-   * Sets a single for the logger
+   * Set a single for the logger to display
    * @param string $log
    * @return $this
    */
@@ -61,7 +61,7 @@ class phpJsConsoleLoggerBase
   }
 
   /**
-   * Sets multiple lines for the logger
+   * Set multiple lines for the logger to display
    * @param array $logs
    * @return $this
    */
@@ -74,7 +74,9 @@ class phpJsConsoleLoggerBase
   }
 
   /**
+   * Set the time to wait before displaying the first log and time between following iterations
    * @param int $timeout
+   * Milliseconds
    * @return $this
    */
   public function setTimeout(int $timeout = self::DEFAULT_TIMEOUT): self
@@ -85,7 +87,9 @@ class phpJsConsoleLoggerBase
   }
 
   /**
+   * Set the time to wait between each log
    * @param int $interval
+   * Milliseconds
    * @return $this
    */
   public function setInterval(int $interval = self::DEFAULT_INTERVAL): self
@@ -96,8 +100,9 @@ class phpJsConsoleLoggerBase
   }
 
   /**
-   * Set to -1 (any negative number) for infinite iterations
+   * Set how many times the logger should repeat displaying your log(s)
    * @param int $maxIterations
+   * Set to -1 (any negative number) for infinite iterations
    * @return $this
    */
   public function setMaxIterations(int $maxIterations = self::DEFAULT_MAX_ITERATIONS): self
@@ -108,8 +113,9 @@ class phpJsConsoleLoggerBase
   }
 
   /**
-   * Use default value '' for no spacer
+   * Display a spacer in between iterations
    * @param string $iterationSpacer
+   * Use '' to display no spacer
    * @return $this
    */
   public function setIterationSpacer(string $iterationSpacer = self::DEFAULT_ITERATION_SPACER): self

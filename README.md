@@ -16,9 +16,21 @@ use jeroendn\phpJsConsoleLogger\phpJsConsoleLogger;
 
 $logger = new phpJsConsoleLogger();
 
-$logger = $logger->setLog('Example');
+/**
+ * Setting required parameters
+ */
+$logger->setLog('Example');
 // OR
-$logger = $logger->setLogs(['Example1', 'Example2', 'Example3']);
+$logger->setLogs(['Example1', 'Example2', 'Example3']);
+
+/**
+ * Setting optional parameters
+ */
+$logger
+  ->setTimeout(5000)
+  ->setInterval(500)
+  ->setMaxIterations(5)
+  ->setIterationSpacer('-')
 
 echo $logger->generateJs(); // Print the generated JS in your HTML
 ```
