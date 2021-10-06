@@ -1,8 +1,8 @@
 <?php
 
-namespace jeroendn\phpJsConsoleLoggerBase;
+namespace jeroendn\PhpJsConsoleLoggerBase;
 
-class phpJsConsoleLoggerBase
+class PhpJsConsoleLoggerBase
 {
   private const DEFAULT_LOG = '';
   private const DEFAULT_LOGS = [];

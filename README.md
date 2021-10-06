@@ -12,9 +12,9 @@ composer require jeroendn/php-js-console-logger
 
 ## How to use
 ```php
-use jeroendn\phpJsConsoleLogger\phpJsConsoleLogger;
+use jeroendn\PhpJsConsoleLogger\PhpJsConsoleLogger;
 
-$logger = new phpJsConsoleLogger();
+$logger = new PhpJsConsoleLogger();
 
 /**
  * Setting required parameters

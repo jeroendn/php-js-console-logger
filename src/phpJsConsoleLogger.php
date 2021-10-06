@@ -1,10 +1,10 @@
 <?php
 
-namespace jeroendn\phpJsConsoleLogger;
+namespace jeroendn\PhpJsConsoleLogger;
 
-use jeroendn\phpJsConsoleLoggerBase\phpJsConsoleLoggerBase;
+use jeroendn\phpJsConsoleLoggerBase\PhpJsConsoleLoggerBase;
 
-class phpJsConsoleLogger extends phpJsConsoleLoggerBase
+class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
 {
   /**
    * Generates the JS in an HTML script tag
