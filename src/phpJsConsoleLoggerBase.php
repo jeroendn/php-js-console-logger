@@ -90,6 +90,14 @@ class PhpJsConsoleLoggerBase
   }
 
   /**
+   * @return int
+   */
+  public function getTimeout(): int
+  {
+    return $this->timeout;
+  }
+
+  /**
    * Set the time to wait before displaying the first log and time between following iterations
    * @param int $timeout
    * Milliseconds
@@ -100,6 +108,14 @@ class PhpJsConsoleLoggerBase
     $this->timeout = $timeout;
 
     return $this;
+  }
+
+  /**
+   * @return int
+   */
+  public function getInterval(): int
+  {
+    return $this->interval;
   }
 
   /**
@@ -116,6 +132,14 @@ class PhpJsConsoleLoggerBase
   }
 
   /**
+   * @return int
+   */
+  public function getMaxIterations(): int
+  {
+    return $this->maxIterations;
+  }
+
+  /**
    * Set how many times the logger should repeat displaying your log(s)
    * @param int $maxIterations
    * Set to -1 (any negative number) for infinite iterations
@@ -126,6 +150,14 @@ class PhpJsConsoleLoggerBase
     $this->maxIterations = $maxIterations;
 
     return $this;
+  }
+
+  /**
+   * @return string
+   */
+  public function getIterationSpacer(): string
+  {
+    return $this->iterationSpacer;
   }
 
   /**

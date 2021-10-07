@@ -36,6 +36,40 @@ class LoggerTest extends TestCase
     );
   }
 
+  public function testPropertyTimeOut(){
+    $this->testGetSetByProperty('TimeOut', [
+        0,
+        100
+      ]
+    );
+  }
+
+  public function testPropertyInterval(){
+    $this->testGetSetByProperty('Interval', [
+        0,
+        100
+      ]
+    );
+  }
+
+  public function testPropertyMaxIterations(){
+    $this->testGetSetByProperty('MaxIterations', [
+        -1,
+        0,
+        10
+      ]
+    );
+  }
+
+  public function testPropertyIterationSpacer() {
+    $this->testGetSetByProperty('IterationSpacer', [
+        'Spacer',
+        '-',
+        ''
+      ]
+    );
+  }
+
   private function testGetSetByProperty(string $propertyName, array $testData)
   {
     $getPropertyName = 'get' . ucfirst($propertyName);
