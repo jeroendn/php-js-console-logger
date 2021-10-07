@@ -17,15 +17,15 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
     {
         return "
             <script type=\"text/javascript\">
-                let maxIterations = " . $this->maxIterations . ";
+                let iterations = " . $this->iterations . ";
                 let iterationSpacer = '" . $this->iterationSpacer . "';
                 let logsOriginal = " . (!empty($this->log) ? json_encode([$this->log]) : json_encode($this->logs)) . ";
-                let logs = ('" . $this->iterationSpacer . "' !== '' && maxIterations !== 1) ? [].concat(logsOriginal, ['" . $this->iterationSpacer . "']) : [].concat(logsOriginal); // TODO perhaps write a function for this
+                let logs = ('" . $this->iterationSpacer . "' !== '' && iterations !== 1) ? [].concat(logsOriginal, ['" . $this->iterationSpacer . "']) : [].concat(logsOriginal); // TODO perhaps write a function for this
                 let timeout = " . $this->timeout . ";
                 let interval = " . $this->interval . ";
 
-                // If maxIterations is 0, don't run the code at all
-                if (maxIterations !== 0) {
+                // If iterations is 0, don't run the code at all
+                if (iterations !== 0) {
 
                     // Timeout
                     setTimeout(function() {
@@ -40,12 +40,12 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
                                 }, interval);
 
                             // Prepare for a new iteration
-                            } else if(maxIterations !== 1) {
+                            } else if(iterations !== 1) {
                                 setTimeout(function () {
-                                    logs = (iterationSpacer !== '' && maxIterations !== 2) // Add spacer when set and not last iteration
+                                    logs = (iterationSpacer !== '' && iterations !== 2) // Add spacer when set and not last iteration
                                             ? logs.concat(logsOriginal, [iterationSpacer])
                                             : logs.concat(logsOriginal);
-                                    if(maxIterations > 0) maxIterations--;
+                                    if(iterations > 0) iterations--;
                                     processLog();
                                 }, timeout)
                             }
@@ -83,10 +83,10 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
         // TODO Check if all required parameters are set
 
         return "
-            let maxIterations = " . json_encode($this->maxIterations) . ";
+            let iterations = " . json_encode($this->iterations) . ";
             let iterationSpacer = '" . json_encode($this->iterationSpacer) . "';
             let logsOriginal = " . (!empty($this->log) ? json_encode([$this->log]) : json_encode($this->logs)) . ";
-            let logs = ('" . json_encode($this->iterationSpacer) . "' !== '' && maxIterations !== 1) ? [].concat(logsOriginal, ['" . json_encode($this->iterationSpacer) . "']) : [].concat(logsOriginal);
+            let logs = ('" . json_encode($this->iterationSpacer) . "' !== '' && iterations !== 1) ? [].concat(logsOriginal, ['" . json_encode($this->iterationSpacer) . "']) : [].concat(logsOriginal);
             let timeout = " . json_encode($this->timeout) . ";
             let interval = " . json_encode($this->interval) . ";
         " . file_get_contents(__DIR__ . '/logger.js');

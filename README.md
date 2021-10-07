@@ -29,7 +29,7 @@ $logger->setLogs(['Example1', 'Example2', 'Example3']);
 $logger
   ->setTimeout(5000)
   ->setInterval(500)
-  ->setMaxIterations(5)
+  ->setIterations(5)
   ->setIterationSpacer('-')
 
 echo $logger->getHtml(); // Print the generated JS in your HTML

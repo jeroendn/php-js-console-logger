@@ -69,7 +69,7 @@ $logger
     ->setLogs($examples)
     ->setTimeout()
     ->setInterval()
-    ->setMaxIterations(10)
+    ->setIterations(10)
     ->setIterationSpacer('-');
 
 echo $logger->getHtml();
@@ -81,8 +81,8 @@ $properties = [
     'Log' => $logger->getLog(),
     'Logs' => $logger->getLogs(),
     'Interval' => $logger->getInterval(),
-    'MaxIterations' => $logger->getMaxIterations(),
-    'iterationSpacer' => $logger->getiterationSpacer()
+    'Iterations' => $logger->getIterations(),
+    'IterationSpacer' => $logger->getiterationSpacer()
 ];
 
 foreach ($properties as $propertyName => $value) {

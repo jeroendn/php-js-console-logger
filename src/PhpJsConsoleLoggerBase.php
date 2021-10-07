@@ -8,7 +8,7 @@ class PhpJsConsoleLoggerBase
     private const DEFAULT_LOGS = [];
     private const DEFAULT_TIMEOUT = 100;
     private const DEFAULT_INTERVAL = 2000;
-    private const DEFAULT_MAX_ITERATIONS = -1;
+    private const DEFAULT_ITERATIONS = -1;
     private const DEFAULT_ITERATION_SPACER = '';
 
     /**
@@ -32,9 +32,9 @@ class PhpJsConsoleLoggerBase
     protected int $interval = self::DEFAULT_INTERVAL;
 
     /**
-     * @var int $maxIterations
+     * @var int $iterations
      */
-    protected int $maxIterations = self::DEFAULT_MAX_ITERATIONS;
+    protected int $iterations = self::DEFAULT_ITERATIONS;
 
     /**
      * @var string $iterationSpacer
@@ -134,20 +134,20 @@ class PhpJsConsoleLoggerBase
     /**
      * @return int
      */
-    public function getMaxIterations(): int
+    public function getIterations(): int
     {
-        return $this->maxIterations;
+        return $this->iterations;
     }
 
     /**
      * Set how many times the logger should repeat displaying your log(s)
-     * @param int $maxIterations
+     * @param int $iterations
      * Set to -1 (any negative number) for infinite iterations
      * @return $this
      */
-    public function setMaxIterations(int $maxIterations = self::DEFAULT_MAX_ITERATIONS): self
+    public function setIterations(int $iterations = self::DEFAULT_ITERATIONS): self
     {
-        $this->maxIterations = $maxIterations;
+        $this->iterations = $iterations;
 
         return $this;
     }

@@ -54,9 +54,9 @@ class LoggerTest extends TestCase
         );
     }
 
-    public function testPropertyMaxIterations()
+    public function testPropertyIterations()
     {
-        $this->testGetSetByProperty('MaxIterations', [
+        $this->testGetSetByProperty('Iterations', [
                 -1,
                 0,
                 10
