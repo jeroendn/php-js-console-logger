@@ -48,6 +48,14 @@ class PhpJsConsoleLoggerBase
 //  protected bool $isServerSideJsLoading = true; // Future feature: Always load js and check in js if the logs should be shown
 
   /**
+   * @return string
+   */
+  public function getLog(): string
+  {
+    return $this->log;
+  }
+
+  /**
    * Set a single for the logger to display
    * @param string $log
    * @return $this
@@ -58,6 +66,14 @@ class PhpJsConsoleLoggerBase
     $this->logs = [];
 
     return $this;
+  }
+
+  /**
+   * @return array
+   */
+  public function getLogs(): array
+  {
+    return $this->logs;
   }
 
   /**

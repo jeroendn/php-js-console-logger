@@ -61,13 +61,25 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
     ";
   }
 
-  private function validateDateTime()
-  {
-
-  }
-
-  private function validateRequiredParameters()
-  {
-
-  }
+// TODO
+//
+//  public function getHtml()
+//  {
+//
+//  }
+//
+//  public function getJs()
+//  {
+//
+//  }
+//
+//  private function validateDateTime()
+//  {
+//
+//  }
+//
+//  private function validateRequiredParameters()
+//  {
+//
+//  }
 }

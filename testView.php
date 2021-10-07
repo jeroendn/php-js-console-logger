@@ -1,4 +1,5 @@
 <?php
+require_once 'vendor/autoload.php';
 
 use jeroendn\PhpJsConsoleLogger\PhpJsConsoleLogger;
 
@@ -63,7 +64,7 @@ $rickRoll = [
 
 $logger = new PhpJsConsoleLogger();
 
-$logger->setLog('test');
+$logger->setLog('Example');
 $logger
   ->setLogs($examples)
   ->setTimeout()
