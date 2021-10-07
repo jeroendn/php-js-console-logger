@@ -72,7 +72,7 @@ $logger
     ->setMaxIterations(10)
     ->setIterationSpacer('-');
 
-echo $logger->generateJs();
+echo $logger->getHtml();
 
 /**
  * Display the variables set

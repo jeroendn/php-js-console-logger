@@ -32,5 +32,5 @@ $logger
   ->setMaxIterations(5)
   ->setIterationSpacer('-')
 
-echo $logger->generateJs(); // Print the generated JS in your HTML
+echo $logger->getHtml(); // Print the generated JS in your HTML
 ```
