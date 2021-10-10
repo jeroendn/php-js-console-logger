@@ -33,9 +33,9 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
 
         return "
             let iterations = " . json_encode($this->iterations) . ";
-            const iterationSpacer = '" . json_encode($this->iterationSpacer) . "';
+            const iterationSpacer = '" . $this->iterationSpacer . "';
             const logsOriginal = " . (!empty($this->log) ? json_encode([$this->log]) : json_encode($this->logs)) . ";
-            let logs = ('" . json_encode($this->iterationSpacer) . "' !== '' && iterations !== 1) ? [].concat(logsOriginal, ['" . json_encode($this->iterationSpacer) . "']) : [].concat(logsOriginal);
+            let logs = ('" . $this->iterationSpacer . "' !== '' && iterations !== 1) ? [].concat(logsOriginal, ['" . $this->iterationSpacer . "']) : [].concat(logsOriginal);
             const timeout = " . json_encode($this->timeout) . ";
             const interval = " . json_encode($this->interval) . ";
         " . file_get_contents(__DIR__ . '/js/logger.js');

@@ -9,7 +9,7 @@ class PhpJsConsoleLoggerBase
     private const DEFAULT_LOGS = [];
     private const DEFAULT_TIMEOUT = 100;
     private const DEFAULT_INTERVAL = 2000;
-    private const DEFAULT_ITERATIONS = -1;
+    private const DEFAULT_ITERATIONS = 1;
     private const DEFAULT_ITERATION_SPACER = '';
 
     /**
@@ -169,7 +169,7 @@ class PhpJsConsoleLoggerBase
      */
     public function setIterationSpacer(string $iterationSpacer = self::DEFAULT_ITERATION_SPACER): self
     {
-        $this->iterationSpacer = $iterationSpacer;
+        $this->iterationSpacer = htmlspecialchars($iterationSpacer);
 
         return $this;
     }
