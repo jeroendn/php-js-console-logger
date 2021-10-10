@@ -2,7 +2,7 @@
 
 namespace jeroendn\PhpJsConsoleLogger;
 
-use jeroendn\PhpJsConsoleLoggerBase\PhpJsConsoleLoggerBase;
+use jeroendn\PhpJsConsoleLogger\PhpJsConsoleLoggerBase;
 
 class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace jeroendn\PhpJsConsoleLoggerBase;
+namespace jeroendn\PhpJsConsoleLogger;
 
 class PhpJsConsoleLoggerBase
 {
