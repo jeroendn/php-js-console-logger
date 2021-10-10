@@ -41,8 +41,6 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
         " . file_get_contents(__DIR__ . '/js/logger.js');
     }
 
-// TODO
-//
 //  private function validateDateTime()
 //  {
 //
@@ -50,7 +48,7 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
 
     /**
      * @return bool
-     * Returns success status
+     * Returns true on success
      * @throws MissingRequiredParametersException
      */
     private function validateRequiredParameters(): bool
@@ -69,9 +67,10 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
     }
 
     /**
-     * Return JS console log if an exception was thrown, so that errors are thrown silently
+     * Return JS console error log, if an exception was thrown. This way errors are thrown silently and don't break the page
      * @param PhpJsConsoleLoggerException $e
      * @return string
+     * Javascript
      */
     private function getExceptionMessage(PhpJsConsoleLoggerException $e): string
     {

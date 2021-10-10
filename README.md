@@ -1,5 +1,5 @@
 # php javascript console logger
-A simple way to create javascript console logs via a php function.
+A simple way to create Javascript console logs via a php class.
 
 This package has mostly been made as a joke and to get some experience setting up a package. Feel free to find any good use for it.
 
@@ -32,5 +32,7 @@ $logger
   ->setIterations(5)
   ->setIterationSpacer('-')
 
-echo $logger->getHtml(); // Print the generated JS in your HTML
+echo $logger->getHtml(); // Returns the generated JavaScript inside an HTML tag
+// OR
+echo $logger->getJs(): // Returns the generated JavaScript
 ```
