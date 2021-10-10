@@ -4,6 +4,7 @@ namespace jeroendn\PhpJsConsoleLogger;
 
 class PhpJsConsoleLoggerBase
 {
+    protected const PACKAGE_NAME = 'PhpJsConsoleLogger';
     private const DEFAULT_LOG = '';
     private const DEFAULT_LOGS = [];
     private const DEFAULT_TIMEOUT = 100;

@@ -18,7 +18,8 @@
   ],
   "autoload": {
     "psr-4": {
-      "jeroendn\\PhpJsConsoleLogger\\": "src"
+      "jeroendn\\PhpJsConsoleLogger\\": "src",
+      "jeroendn\\PhpJsConsoleLogger\\Exceptions\\": "src"
     }
   }
 }

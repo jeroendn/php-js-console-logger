@@ -2,16 +2,16 @@
 
 namespace jeroendn\PhpJsConsoleLogger;
 
-use jeroendn\PhpJsConsoleLogger\PhpJsConsoleLoggerBase;
+use jeroendn\PhpJsConsoleLogger\Exceptions\MissingRequiredParametersException;
+use jeroendn\PhpJsConsoleLogger\Exceptions\PhpJsConsoleLoggerException;
 
 class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
 {
     /**
      * Generates the JS in an HTML script tag
-     * @deprecated Use getHtml() or getJs() instead
-     *
      * @return string
      * HTML
+     * @deprecated Use getHtml() or getJs() instead
      */
     public function generateJs(): string
     {
@@ -68,8 +68,6 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
      */
     public function getHtml(): string
     {
-        // TODO Check if all required parameters are set
-
         return "<script type=\"text/javascript\">" . $this->getJs() . "</script>";
     }
 
@@ -80,7 +78,12 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
      */
     public function getJs(): string
     {
-        // TODO Check if all required parameters are set
+        try {
+            $this->validateRequiredParameters();
+        }
+        catch (MissingRequiredParametersException $e) {
+            return $this->getExceptionMessage($e);
+        }
 
         return "
             let iterations = " . json_encode($this->iterations) . ";
@@ -98,9 +101,34 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
 //  {
 //
 //  }
-//
-//  private function validateRequiredParameters()
-//  {
-//
-//  }
+
+    /**
+     * @return bool
+     * Returns success status
+     * @throws MissingRequiredParametersException
+     */
+    private function validateRequiredParameters(): bool
+    {
+        if (
+            !(empty($this->log) && !empty($this->logs))
+            &&
+            !(empty($this->logs) && !empty($this->log))
+        ) {
+            $error = 'log or logs';
+        }
+
+        if (!empty($error)) throw new MissingRequiredParametersException("Parameter $error not set");
+
+        return true;
+    }
+
+    /**
+     * Return JS console log if an exception was thrown, so that errors are thrown silently
+     * @param PhpJsConsoleLoggerException $e
+     * @return string
+     */
+    private function getExceptionMessage(PhpJsConsoleLoggerException $e): string
+    {
+        return "console.error('" . self::PACKAGE_NAME . " - " . $e->getMessage() . "')";
+    }
 }
