@@ -78,10 +78,10 @@ echo $logger->getHtml();
  * Display the variables set
  */
 $properties = [
-    'Log' => $logger->getLog(),
-    'Logs' => $logger->getLogs(),
-    'Interval' => $logger->getInterval(),
-    'Iterations' => $logger->getIterations(),
+    'Log'             => $logger->getLog(),
+    'Logs'            => $logger->getLogs(),
+    'Interval'        => $logger->getInterval(),
+    'Iterations'      => $logger->getIterations(),
     'IterationSpacer' => $logger->getiterationSpacer()
 ];
 

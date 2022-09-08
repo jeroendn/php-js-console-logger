@@ -4,13 +4,13 @@ namespace jeroendn\PhpJsConsoleLogger;
 
 class PhpJsConsoleLoggerBase
 {
-    protected const PACKAGE_NAME = 'PhpJsConsoleLogger';
-    private const DEFAULT_LOG = '';
-    private const DEFAULT_LOGS = [];
-    private const DEFAULT_TIMEOUT = 100;
-    private const DEFAULT_INTERVAL = 2000;
-    private const DEFAULT_ITERATIONS = 1;
-    private const DEFAULT_ITERATION_SPACER = '';
+    protected const PACKAGE_NAME             = 'PhpJsConsoleLogger';
+    private const   DEFAULT_LOG              = '';
+    private const   DEFAULT_LOGS             = [];
+    private const   DEFAULT_TIMEOUT          = 100;
+    private const   DEFAULT_INTERVAL         = 2000;
+    private const   DEFAULT_ITERATIONS       = 1;
+    private const   DEFAULT_ITERATION_SPACER = '';
 
     /**
      * @var string $log
@@ -63,7 +63,7 @@ class PhpJsConsoleLoggerBase
      */
     public function setLog(string $log = self::DEFAULT_LOG): self
     {
-        $this->log = $log;
+        $this->log  = $log;
         $this->logs = [];
 
         return $this;
@@ -85,7 +85,7 @@ class PhpJsConsoleLoggerBase
     public function setLogs(array $logs = self::DEFAULT_LOGS): self
     {
         $this->logs = $logs;
-        $this->log = '';
+        $this->log  = '';
 
         return $this;
     }

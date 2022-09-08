@@ -1,12 +1,12 @@
-# php javascript console logger
-A simple way to create Javascript console logs via a php class.
+# PHP JavaScript console logger
+A simple way to create JavaScript console logs via a PHP class.
 
 This package has mostly been made as a joke and to get some experience setting up a package. Feel free to find any good use for it.
 
 ![Alt Text](https://jeroendn.nl/media/ConsoleRickRoll.gif)
 
 ## Installation
-```bash
+```shell
 composer require jeroendn/php-js-console-logger
 ```
 
@@ -35,4 +35,10 @@ $logger
 echo $logger->getHtml(); // Returns the generated JavaScript inside an HTML tag
 // OR
 echo $logger->getJs(): // Returns the generated JavaScript
+```
+
+## Development
+### Run tests
+```shell
+./vendor/bin/phpunit
 ```
