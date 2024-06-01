@@ -3,7 +3,7 @@ A simple way to create JavaScript console logs via a PHP class.
 
 This package has mostly been made as a joke and to get some experience setting up a package. Feel free to find any good use for it.
 
-![Alt Text](https://jeroendn.nl/media/ConsoleRickRoll.gif)
+![Alt Text](https://kappa.jeroendn.nl/WUNi7/BucUneBu09.gif)
 
 ## Installation
 ```shell
