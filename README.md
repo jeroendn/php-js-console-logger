@@ -40,5 +40,5 @@ echo $logger->getJs(): // Returns the generated JavaScript
 ## Development
 ### Run tests
 ```shell
-./vendor/bin/phpunit
+docker exec -it php_php_js_console_logger ./vendor/bin/phpunit
 ```

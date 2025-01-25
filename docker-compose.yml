@@ -1,0 +1,28 @@
+services:
+  caddy:
+    build: docker/caddy/.
+    image: caddy:caddy
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+    networks:
+      - php_php_js_console_logger
+
+  php_php_js_console_logger:
+    hostname: php_js_console_logger
+    build: docker/php/.
+    image: php_php_js_console_logger:fpm-alpine
+    container_name: php_php_js_console_logger
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html
+    networks:
+        - php_php_js_console_logger
+
+networks:
+  php_php_js_console_logger:
+    external: false

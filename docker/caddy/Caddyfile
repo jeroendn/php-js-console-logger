@@ -1,0 +1,20 @@
+localhost {
+    root * /var/www/html
+
+	php_fastcgi php_php_js_console_logger:9000 {
+        try_files {path} testView.php = 404
+    }
+
+    # Serve static files
+    file_server {
+        hide .env
+    }
+
+    handle_errors {
+    	respond "{err.status_code} {err.status_text}"
+    }
+
+    tls internal {
+        on_demand
+    }
+}
