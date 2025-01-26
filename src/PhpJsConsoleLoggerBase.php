@@ -2,64 +2,36 @@
 
 namespace jeroendn\PhpJsConsoleLogger;
 
-class PhpJsConsoleLoggerBase
+abstract class PhpJsConsoleLoggerBase
 {
-    protected const PACKAGE_NAME             = 'PhpJsConsoleLogger';
-    private const   DEFAULT_LOG              = '';
-    private const   DEFAULT_LOGS             = [];
-    private const   DEFAULT_TIMEOUT          = 100;
-    private const   DEFAULT_INTERVAL         = 2000;
-    private const   DEFAULT_ITERATIONS       = 1;
-    private const   DEFAULT_ITERATION_SPACER = '';
+    protected const string PACKAGE_NAME = 'PhpJsConsoleLogger';
 
-    /**
-     * @var string $log
-     */
-    protected string $log = self::DEFAULT_LOG;
+    private const string   DEFAULT_LOG              = '';
+    private const array    DEFAULT_LOGS             = [];
+    private const int      DEFAULT_TIMEOUT          = 100;
+    private const int      DEFAULT_INTERVAL         = 2000;
+    private const int      DEFAULT_ITERATIONS       = 1;
+    private const string   DEFAULT_ITERATION_SPACER = '';
 
-    /**
-     * @var array $logs
-     */
-    protected array $logs = self::DEFAULT_LOGS;
-
-    /**
-     * @var int $timeout
-     */
-    protected int $timeout = self::DEFAULT_TIMEOUT;
-
-    /**
-     * @var int $interval
-     */
-    protected int $interval = self::DEFAULT_INTERVAL;
-
-    /**
-     * @var int $iterations
-     */
-    protected int $iterations = self::DEFAULT_ITERATIONS;
-
-    /**
-     * @var string $iterationSpacer
-     */
+    protected string $log             = self::DEFAULT_LOG;
+    protected array  $logs            = self::DEFAULT_LOGS;
+    protected int    $timeout         = self::DEFAULT_TIMEOUT;
+    protected int    $interval        = self::DEFAULT_INTERVAL;
+    protected int    $iterations      = self::DEFAULT_ITERATIONS;
     protected string $iterationSpacer = self::DEFAULT_ITERATION_SPACER;
 
+// TODO Only activate logger between specific times.
 //  protected DateTime|null $dateTimeStart = null;
-
 //  protected DateTime|null $dateTimeEnd = null;
+//  protected bool $isServerSideJsLoading = true; // TODO Do not load php at all or let javascript handle activating the logger
 
-//  protected bool $isServerSideJsLoading = true; // Future feature: Always load js and check in js if the logs should be shown
-
-    /**
-     * @return string
-     */
     public function getLog(): string
     {
         return $this->log;
     }
 
     /**
-     * Set a single for the logger to display
-     * @param string $log
-     * @return $this
+     * Set a single message for the logger to display
      */
     public function setLog(string $log = self::DEFAULT_LOG): self
     {
@@ -69,18 +41,13 @@ class PhpJsConsoleLoggerBase
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getLogs(): array
     {
         return $this->logs;
     }
 
     /**
-     * Set multiple lines for the logger to display
-     * @param array $logs
-     * @return $this
+     * Set multiple messages for the logger to display
      */
     public function setLogs(array $logs = self::DEFAULT_LOGS): self
     {
@@ -90,9 +57,6 @@ class PhpJsConsoleLoggerBase
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getTimeout(): int
     {
         return $this->timeout;
@@ -100,9 +64,7 @@ class PhpJsConsoleLoggerBase
 
     /**
      * Set the time to wait before displaying the first log and time between following iterations
-     * @param int $timeout
-     * Milliseconds
-     * @return $this
+     * @param int $timeout In milliseconds
      */
     public function setTimeout(int $timeout = self::DEFAULT_TIMEOUT): self
     {
@@ -111,9 +73,6 @@ class PhpJsConsoleLoggerBase
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getInterval(): int
     {
         return $this->interval;
@@ -121,9 +80,7 @@ class PhpJsConsoleLoggerBase
 
     /**
      * Set the time to wait between each log
-     * @param int $interval
-     * Milliseconds
-     * @return $this
+     * @param int $interval In milliseconds
      */
     public function setInterval(int $interval = self::DEFAULT_INTERVAL): self
     {
@@ -132,9 +89,6 @@ class PhpJsConsoleLoggerBase
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getIterations(): int
     {
         return $this->iterations;
@@ -142,9 +96,7 @@ class PhpJsConsoleLoggerBase
 
     /**
      * Set how many times the logger should repeat displaying your log(s)
-     * @param int $iterations
-     * Set to -1 (any negative number) for infinite iterations
-     * @return $this
+     * @param int $iterations Set to -1 (any negative number) for infinite iterations
      */
     public function setIterations(int $iterations = self::DEFAULT_ITERATIONS): self
     {
@@ -153,9 +105,6 @@ class PhpJsConsoleLoggerBase
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getIterationSpacer(): string
     {
         return $this->iterationSpacer;
@@ -163,9 +112,7 @@ class PhpJsConsoleLoggerBase
 
     /**
      * Display a spacer in between iterations
-     * @param string $iterationSpacer
-     * Use '' to display no spacer
-     * @return $this
+     * @param string $iterationSpacer Use '' to display no spacer
      */
     public function setIterationSpacer(string $iterationSpacer = self::DEFAULT_ITERATION_SPACER): self
     {

@@ -2,6 +2,6 @@
 
 namespace jeroendn\PhpJsConsoleLogger\Exceptions;
 
-class MissingRequiredParametersException extends PhpJsConsoleLoggerException
+final class MissingRequiredParametersException extends PhpJsConsoleLoggerException
 {
 }

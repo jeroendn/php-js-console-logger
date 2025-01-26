@@ -2,6 +2,8 @@
 
 namespace jeroendn\PhpJsConsoleLogger\Exceptions;
 
-class PhpJsConsoleLoggerException extends \Exception
+use Exception;
+
+abstract class PhpJsConsoleLoggerException extends Exception
 {
 }

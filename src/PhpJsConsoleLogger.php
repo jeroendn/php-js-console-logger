@@ -9,8 +9,7 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
 {
     /**
      * Generates the JS in an HTML script tag
-     * @return string
-     * HTML
+     * @return string HTML
      */
     public function getHtml(): string
     {
@@ -19,8 +18,7 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
 
     /**
      * Generates the JS
-     * @return string
-     * Javascript
+     * @return string Javascript
      */
     public function getJs(): string
     {
@@ -41,17 +39,16 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
         " . file_get_contents(__DIR__ . '/js/logger.js');
     }
 
-//  private function validateDateTime()
-//  {
-//
-//  }
+    // TODO
+    private function validateDateTime(): bool
+    {
+        return true;
+    }
 
     /**
-     * @return bool
-     * Returns true on success
      * @throws MissingRequiredParametersException
      */
-    private function validateRequiredParameters(): bool
+    private function validateRequiredParameters(): void
     {
         if (
             !(empty($this->log) && !empty($this->logs))
@@ -62,15 +59,12 @@ class PhpJsConsoleLogger extends PhpJsConsoleLoggerBase
         }
 
         if (!empty($error)) throw new MissingRequiredParametersException("Parameter $error not set");
-
-        return true;
     }
 
     /**
      * Return JS console error log, if an exception was thrown. This way errors are thrown silently and don't break the page
      * @param PhpJsConsoleLoggerException $e
-     * @return string
-     * Javascript
+     * @return string Javascript
      */
     private function getExceptionMessage(PhpJsConsoleLoggerException $e): string
     {

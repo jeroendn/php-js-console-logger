@@ -4,7 +4,7 @@ use jeroendn\PhpJsConsoleLogger\PhpJsConsoleLogger;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Run tests by executing in root: ./vendor/bin/phpunit
+ * Run tests by executing in "./vendor/bin/phpunit" in the root directory
  */
 class LoggerTest extends TestCase
 {
@@ -15,7 +15,7 @@ class LoggerTest extends TestCase
         $this->logger = new PhpJsConsoleLogger;
     }
 
-    public function testPropertyLog()
+    public function testPropertyLog(): void
     {
         $this->testGetSetByProperty('Log', [
                 'Example',
@@ -27,7 +27,7 @@ class LoggerTest extends TestCase
         );
     }
 
-    public function testPropertyLogs()
+    public function testPropertyLogs(): void
     {
         $this->testGetSetByProperty('Logs', [
                 ['Example1', 'Example2', 'Example3'],
@@ -36,7 +36,7 @@ class LoggerTest extends TestCase
         );
     }
 
-    public function testPropertyTimeOut()
+    public function testPropertyTimeOut(): void
     {
         $this->testGetSetByProperty('TimeOut', [
                 0,
@@ -45,7 +45,7 @@ class LoggerTest extends TestCase
         );
     }
 
-    public function testPropertyInterval()
+    public function testPropertyInterval(): void
     {
         $this->testGetSetByProperty('Interval', [
                 0,
@@ -54,7 +54,7 @@ class LoggerTest extends TestCase
         );
     }
 
-    public function testPropertyIterations()
+    public function testPropertyIterations(): void
     {
         $this->testGetSetByProperty('Iterations', [
                 -1,
@@ -64,7 +64,7 @@ class LoggerTest extends TestCase
         );
     }
 
-    public function testPropertyIterationSpacer()
+    public function testPropertyIterationSpacer(): void
     {
         $this->testGetSetByProperty('IterationSpacer', [
                 'Spacer',
@@ -74,7 +74,7 @@ class LoggerTest extends TestCase
         );
     }
 
-    private function testGetSetByProperty(string $propertyName, array $testData)
+    private function testGetSetByProperty(string $propertyName, array $testData): void
     {
         $getPropertyName = 'get' . ucfirst($propertyName);
         $setPropertyName = 'set' . ucfirst($propertyName);
